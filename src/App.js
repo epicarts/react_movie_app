@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Movie from './Movie';
 
@@ -25,8 +24,9 @@ const movies = [
 function App() {
   return (
     <div className="App">
-      {movies.map(movie => {
-        return <Movie title={movie.title} poster={movie.poster} />
+      {movies.map((movie, index) => {
+        // console.log(index)
+        return <Movie title={movie.title} poster={movie.poster} key={index}/> 
       })}
     </div>
   );

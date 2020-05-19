@@ -1,8 +1,15 @@
 import React from 'react'
 import { Component } from 'react';
+import propTypes from 'prop-types'
 import './Movie.css';
 
 class Movie extends Component{
+
+    static propTypes = {
+        title: propTypes.string.isRequired,
+        poster: propTypes.string
+    }
+
     render(){
         // console.log(this.props)
         return(
@@ -17,6 +24,11 @@ class Movie extends Component{
 }
 
 class MoviePostet extends Component{
+
+    static propTypes = {
+        poster: propTypes.string.isRequired
+    }
+
     render(){
         // console.log(this.props)
         return(
