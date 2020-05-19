@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Movie from './Movie';
 
@@ -21,15 +21,32 @@ const movies = [
   }
 ]
 
-function App() {
-  return (
-    <div className="App">
-      {movies.map((movie, index) => {
-        // console.log(index)
-        return <Movie title={movie.title} poster={movie.poster} key={index}/> 
-      })}
-    </div>
-  );
+class App extends Component {
+  // Render: WillMount, render DidMount
+
+  state = {
+    greeting: 'Hello!!!'
+  }
+
+  componentDidMount(){
+    setTimeout(() => {
+      this.setState({
+        greeting: 'Hello again!!'
+      })
+    }, 5000)
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {this.state.greeting}
+        {movies.map((movie, index) => {
+          // console.log(index)
+          return <Movie title={movie.title} poster={movie.poster} key={index}/> 
+        })}
+      </div>
+    );
+  }
 }
 
 export default App;
